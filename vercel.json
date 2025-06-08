@@ -1,21 +1,13 @@
 {
-  "projects": {
-    "main": {
-      "source": "src",
-      "buildCommand": "npm run build",
-      "outputDirectory": "dist"
-    },
-    "blog": {
-      "source": "blog",
-      "buildCommand": "npx vitepress build",
-      "outputDirectory": "blog/.vitepress/dist"
-    }
-  },
-  "rewrites": [
+  "builds": [
     {
-      "source": "/blog/:path*",
-      "destination": "/blog/:path*"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
     }
+  ],
+  "rewrites": [
+    { "source": "/blog/:path*", "destination": "/blog/:path*" }
   ]
 }
 
