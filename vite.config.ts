@@ -4,4 +4,13 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [vue(),tailwindcss()],
+  server: {
+    proxy: {
+      '/blog': {
+        target: 'http://localhost:5174', // where VitePress is running
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/blog/, '/blog'),
+      },
+    },
+  },
 })

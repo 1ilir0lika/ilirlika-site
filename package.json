@@ -4,8 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "dev:vue": "vite",
+    "dev:blog": "vitepress dev blog --port 5174",
+    "build": "vue-tsc -b && vite build && npm run build:blog && npm run copy:blog",
+    "dev": "concurrently \"npm run dev:vue\" \"npm run dev:blog\"",
+    "build:blog": "vitepress build blog",
+    "copy:blog": "cp -r blog/.vitepress/dist ./public/blog",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -17,8 +21,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.3",
     "@vue/tsconfig": "^0.7.0",
+    "concurrently": "^9.1.2",
     "typescript": "~5.8.3",
     "vite": "^6.3.5",
+    "vitepress": "^1.6.3",
     "vue-tsc": "^2.2.8"
   }
 }
