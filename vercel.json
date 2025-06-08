@@ -1,8 +1,20 @@
 {
+  "projects": {
+    "main": {
+      "source": "src",
+      "buildCommand": "npm run build",
+      "outputDirectory": "dist"
+    },
+    "blog": {
+      "source": "blog",
+      "buildCommand": "npx vitepress build",
+      "outputDirectory": "blog/.vitepress/dist"
+    }
+  },
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/blog/:path*",
+      "destination": "/blog/:path*"
     }
   ]
 }

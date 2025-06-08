@@ -11,7 +11,6 @@ In this blog I will discuss topics that I find interesting, such as:
 ## Computer Science
 
 - [The making of this site](./articles/post1.md)
-- [Understanding Big-O](./articles/big-o.md)
 
 ## Math
 
