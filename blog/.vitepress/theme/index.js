@@ -20,7 +20,7 @@ export default {
       mapping: 'pathname',
       inputPosition: 'bottom',
       lang: 'en',
-      reactionsEnabled: '1',
+      reactionsEnabled: '0',
       emitMetadata: '0',
       theme: 'preferred_color_scheme',
       loading: 'lazy',
