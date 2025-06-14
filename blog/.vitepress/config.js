@@ -10,7 +10,7 @@ export default defineConfig({
     ['meta', { name: 'author', content: 'Ilir' }],
     ['meta', { property: 'og:title', content: "Ilir's Blog" }],
     ['meta', { property: 'og:description', content: "Math, code, and curiosity." }],
-    ['link', { rel: 'icon', href: '/blog/favicon.ico' }],
+    ['link', { rel: 'icon', href: '/favicon.svg' }],
     ['script', { src: 'https://vercel.com/analytics/script.js', defer: true }]
   ]
 })

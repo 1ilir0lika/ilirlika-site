@@ -168,7 +168,7 @@ onMounted(() => {
   </a>
 
   <!-- Circle -->
-  <a href="/projects" class="flex flex-col items-center cursor-pointer pointer-events-auto group" style="height: 96px; justify-content: flex-end; text-decoration: none;">
+  <a href="/projects/" class="flex flex-col items-center cursor-pointer pointer-events-auto group" style="height: 96px; justify-content: flex-end; text-decoration: none;">
     <div class="w-16 h-16 rounded-full bg-[#444] group-hover:opacity-70 transition"></div>
     <p class="mt-2 text-gray-700 font-semibold group-hover:text-gray-500 transition">Projects</p>
   </a>
