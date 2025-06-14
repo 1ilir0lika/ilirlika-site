@@ -1,3 +1,7 @@
+---
+comment: false
+---
+
 # What will I find here?
 
 In this blog I will discuss topics that I find interesting, such as:
