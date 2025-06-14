@@ -124,36 +124,36 @@ onMounted(() => {
     .join('line')
     .attr('stroke-width', 2)
 
-  const nodeGroup = svgEl.append('g')
-    .selectAll('g')
-    .data(nodes)
-    .join('g')
-    .on('mouseover', function (_, d) {
-      d3.select(this).select('title').text(`${d.id}\n${d.description}`)
-    })
-    .on('click', (_, d) => {
-      selectedNode.value = d
-    })
-    .on('dblclick', (_, d) => {
-      window.open(d.github, '_blank')
-    })
-    .call(
-      d3.drag<SVGGElement, Node>()
-        .on('start', (event, d) => {
-          if (!event.active) simulation.alphaTarget(0.3).restart()
-          d.fx = d.x
-          d.fy = d.y
-        })
-        .on('drag', (event, d) => {
-          d.fx = event.x
-          d.fy = event.y
-        })
-        .on('end', (event, d) => {
-          if (!event.active) simulation.alphaTarget(0)
-          d.fx = null
-          d.fy = null
-        })
-    )
+const nodeGroup: d3.Selection<SVGGElement, Node, SVGGElement, unknown> = svgEl.append('g')
+  .selectAll<SVGGElement, Node>('g')
+  .data(nodes)
+  .join('g')
+  .on('mouseover', function (_, d) {
+    d3.select(this).select('title').text(`${d.id}\n${d.description}`)
+  })
+  .on('click', (_, d) => {
+    selectedNode.value = d
+  })
+  .on('dblclick', (_, d) => {
+    window.open(d.github, '_blank')
+  })
+  .call(
+    d3.drag<SVGGElement, Node>()
+      .on('start', function (event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart()
+        d.fx = d.x
+        d.fy = d.y
+      })
+      .on('drag', function (event, d) {
+        d.fx = event.x
+        d.fy = event.y
+      })
+      .on('end', function (event, d) {
+        if (!event.active) simulation.alphaTarget(0)
+        d.fx = null
+        d.fy = null
+      })
+  )
 
   nodeGroup.append('title')
 
