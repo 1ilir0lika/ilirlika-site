@@ -6,7 +6,7 @@ import Projects from './pages/Projects.vue'
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About },
-  { path: '/projects/', component: Projects },
+  { path: '/projects', component: Projects },
 ]
 
 const router = createRouter({
