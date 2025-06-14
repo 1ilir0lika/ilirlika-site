@@ -7,5 +7,9 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build"
+  },
+  "dependencies": {
+    "giscus": "^1.6.0",
+    "vitepress-plugin-comment-with-giscus": "^1.1.15"
   }
 }
