@@ -1,10 +1,12 @@
 import DefaultTheme from 'vitepress/theme';
+import Layout from './Layout.vue';
 import giscusTalk from 'vitepress-plugin-comment-with-giscus';
 import { useData, useRoute } from 'vitepress';
 import { toRefs } from "vue";
 
 export default {
   ...DefaultTheme,
+  Layout, // usa il nuovo layout!
   enhanceApp(ctx) {
     DefaultTheme.enhanceApp(ctx);
   },
@@ -32,3 +34,4 @@ export default {
     }, true);
   }
 };
+
