@@ -9,8 +9,8 @@
         :style="{
           left: triangle.x + 'px',
           top: triangle.y + 'px',
-          '--scale': triangle.scale,
-          animationDuration: triangle.duration + 's'
+          animationDuration: triangle.duration + 's',
+          transform: `rotate(${triangle.initialRotation}deg) scale(${triangle.scale})`
         }"
       ></div>
     </div>
@@ -81,6 +81,7 @@ interface Triangle {
   y: number;
   scale: number;
   duration: number;
+  initialRotation: number; // New: start angle in degrees
 }
 
 function getRandom(min: number, max: number): number {
@@ -92,11 +93,7 @@ function distance(x1: number, y1: number, x2: number, y2: number): number {
 }
 
 function getXNearEdges(vw: number, edgeWidth: number): number {
-  if (Math.random() < 0.5) {
-    return getRandom(0, edgeWidth);
-  } else {
-    return getRandom(vw - edgeWidth, vw);
-  }
+  return Math.random() < 0.5 ? getRandom(0, edgeWidth) : getRandom(vw - edgeWidth, vw);
 }
 
 const triangles = ref<Triangle[]>([]);
@@ -106,7 +103,7 @@ onMounted(() => {
   const vh = window.innerHeight;
 
   const totalPixels = vw * vh;
-  const pixelDensity = 300000;
+  const pixelDensity = 200000;
   const count = Math.floor(totalPixels / pixelDensity);
 
   const edgeWidth = 400;
@@ -135,7 +132,7 @@ onMounted(() => {
 
       tries++;
       if (tries > maxTries) {
-        valid = true;
+        valid = true; // force accept after many tries
       }
     } while (!valid);
 
@@ -145,6 +142,7 @@ onMounted(() => {
       y,
       scale: getRandom(1, 3),
       duration: getRandom(40, 80),
+      initialRotation: getRandom(0, 360), // Random start rotation angle
     });
   }
 
@@ -163,7 +161,8 @@ onMounted(() => {
   will-change: transform;
   mix-blend-mode: lighten;
   transform-origin: center bottom;
-  transform: rotate(0deg) scale(var(--scale, 1));
+
+  /* Remove initial transform from CSS, set by inline style */
   animation-name: slowRotate;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
