@@ -106,7 +106,7 @@ onMounted(() => {
   const vh = window.innerHeight;
 
   const totalPixels = vw * vh;
-  const pixelDensity = 200000;
+  const pixelDensity = 300000;
   const count = Math.floor(totalPixels / pixelDensity);
 
   const edgeWidth = 400;
