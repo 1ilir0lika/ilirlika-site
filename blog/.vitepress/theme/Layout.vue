@@ -12,11 +12,17 @@ import SpinningSquaresBackground from './components/SpinningSquaresBackground.vu
 const { Layout } = DefaultTheme
 </script>
 
-<style scoped>
+<style>
 .custom-layout {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
 }
-</style>
 
+/* Hide the actual curtain you found */
+.aside-curtain {
+  background-color: transparent !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+}
+</style>
