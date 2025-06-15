@@ -19,8 +19,11 @@ onMounted(() => {
     type: ShapeType
   }
 
-  const shapeCount = 12
-  const shapes: Shape[] = []
+  const densityFactor = 75000 // 1 shape per 75,000 px²
+  const minSize = 70
+  const maxSize = 100
+
+  let shapes: Shape[] = []
   const shapeTypes: ShapeType[] = ['circle', 'square', 'triangle']
 
   const resizeCanvas = () => {
@@ -31,25 +34,28 @@ onMounted(() => {
     canvas.style.height = `${window.innerHeight}px`
     ctx.setTransform(1, 0, 0, 1, 0, 0)
     ctx.scale(dpr, dpr)
+
+    generateShapes()
   }
 
-  resizeCanvas()
-  window.addEventListener('resize', resizeCanvas)
+  function generateShapes() {
+    const area = window.innerWidth * window.innerHeight
+    const count = Math.floor(area / densityFactor)
 
-  for (let i = 0; i < shapeCount; i++) {
-    shapes.push({
+    const baseSize = Math.min(window.innerWidth, window.innerHeight)
+    shapes = Array.from({ length: count }, () => ({
       x: Math.random() * window.innerWidth,
       y: Math.random() * window.innerHeight,
-      vx: (Math.random() - 0.5) ,
+      vx: (Math.random() - 0.5),
       vy: (Math.random() - 0.5) * 0.28,
-      size: 100,
+      size: minSize + Math.random() * (maxSize - minSize) * (baseSize / 1000),
       type: shapeTypes[Math.floor(Math.random() * shapeTypes.length)]
-    })
+    }))
   }
 
   const applyRepulsion = (s: Shape, others: Shape[]) => {
     for (const other of others) {
-      if (s === other) return
+      if (s === other) continue
 
       let dx = s.x - other.x
       let dy = s.y - other.y
@@ -90,7 +96,6 @@ onMounted(() => {
   const animate = () => {
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
 
-    // Update shape physics
     for (const s of shapes) {
       applyRepulsion(s, shapes)
 
@@ -103,16 +108,19 @@ onMounted(() => {
       if (s.y < 0) s.y = window.innerHeight
     }
 
-    // Draw shapes with blending only at intersection
     ctx.globalCompositeOperation = 'lighter'
     for (const s of shapes) drawShape(s)
 
     requestAnimationFrame(animate)
   }
 
+  resizeCanvas()
+  window.addEventListener('resize', resizeCanvas)
+
   animate()
 })
 </script>
+
 
 <template>
   <div>
