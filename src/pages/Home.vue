@@ -19,7 +19,7 @@ onMounted(() => {
     type: ShapeType
   }
 
-  const densityFactor = 75000 // 1 shape per 75,000 px²
+  const densityFactor = 150000 // 1 shape per 75,000 px²
   const minSize = 70
   const maxSize = 100
 
