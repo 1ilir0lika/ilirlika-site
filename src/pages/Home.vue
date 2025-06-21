@@ -167,7 +167,7 @@ onMounted(() => {
 <!-- Shapes row -->
 <div class="flex justify-center space-x-16 mt-12">
   <!-- Triangle -->
-  <a href="/about/" class="flex flex-col items-center cursor-pointer pointer-events-auto group" style="height: 96px; justify-content: flex-end; text-decoration: none;">
+  <a href="/about" class="flex flex-col items-center cursor-pointer pointer-events-auto group" style="height: 96px; justify-content: flex-end; text-decoration: none;">
     <div
       class="w-0 h-0 border-l-[40px] border-l-transparent border-r-[40px] border-r-transparent border-b-[72px] group-hover:opacity-70 transition"
       style="border-bottom-color: #444;"
@@ -176,7 +176,7 @@ onMounted(() => {
   </a>
 
   <!-- Circle -->
-  <a href="/projects/" class="flex flex-col items-center cursor-pointer pointer-events-auto group" style="height: 96px; justify-content: flex-end; text-decoration: none;">
+  <a href="/projects" class="flex flex-col items-center cursor-pointer pointer-events-auto group" style="height: 96px; justify-content: flex-end; text-decoration: none;">
     <div class="w-16 h-16 rounded-full bg-[#444] group-hover:opacity-70 transition"></div>
     <p class="mt-2 text-gray-700 font-semibold group-hover:text-gray-500 transition">Projects</p>
   </a>
