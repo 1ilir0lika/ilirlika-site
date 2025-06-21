@@ -6,7 +6,8 @@ comment: false
 
 In this blog I will discuss topics that I find interesting, such as:
 
-- [Computer Science](#computer-science)
+- [What will I find here?](#what-will-i-find-here)
+  - [Computer Science](#computer-science)
 
 
 ## Computer Science
@@ -18,5 +19,5 @@ In this blog I will discuss topics that I find interesting, such as:
 
 
 <div style="position: fixed; bottom: 0; left: 0; width: 100%; padding: 1rem 0; text-align: center; background: white;">
-  <a href="https://ilirlika-site.vercel.app/" style="text-decoration: none; font-weight: bold;">← Back to Home</a>
+  <a href="https://ilirlika-site.vercel.app/" rel="external" style="text-decoration: none; font-weight: bold;">← Back to Home</a>
 </div>

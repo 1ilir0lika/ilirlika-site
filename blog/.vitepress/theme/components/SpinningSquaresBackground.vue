@@ -24,7 +24,7 @@ onMounted(() => {
       y: Math.random() * h,
       size: 20 + Math.random() * 50, // tra 20 e 70 px
       angle: Math.random() * Math.PI * 2,
-      rotationSpeed: 0.003 + Math.random() * 0.01,
+      rotationSpeed: Math.random() * 0.002,
     }))
   }
 
