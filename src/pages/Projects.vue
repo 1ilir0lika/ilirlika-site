@@ -1,7 +1,19 @@
 <template>
-  <div class="relative w-screen h-screen overflow-hidden">
+ <div class="relative w-screen h-screen overflow-hidden">
     <!-- Title and Description -->
-    <div class="absolute top-6 left-1/2 transform -translate-x-1/2 max-w-2xl bg-white/90 dark:bg-gray-900/90 p-4 rounded-lg shadow-md z-10">
+    <div
+      v-if="showInfo"
+      class="absolute top-6 left-1/2 transform -translate-x-1/2 max-w-2xl bg-white/90 dark:bg-gray-900/90 p-4 rounded-lg shadow-md z-10"
+    >
+      <!-- Close button, visible only on small screens -->
+      <button
+        @click="showInfo = false"
+        class="sm:hidden absolute top-2 right-3 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-bold text-xl leading-none"
+        aria-label="Close info"
+      >
+        ×
+      </button>
+
       <h1 class="text-3xl font-bold text-center mb-2">Ilir's Projects Map</h1>
       <p class="text-gray-800 dark:text-gray-200 mb-1">
         This interactive map showcases Ilir’s various projects, each represented by a symbol based on its type.
@@ -10,6 +22,7 @@
         Every project is in a way <strong>connected</strong> to another that's why I decided this non linear way of having a general view of my projects,that being said if you <strong>click</strong> on one of the nodes you'll either find the github link or be redirected to it's blog post where I discuss it's creation and it's porpouses.
       </p>
     </div>
+
 
     <!-- Map SVG -->
     <svg ref="svg" class="w-screen h-screen bg-gray-100 dark:bg-gray-800"></svg>
@@ -43,6 +56,8 @@
   import { ref, onMounted } from 'vue'
 import * as d3 from 'd3'
 import type { SimulationLinkDatum } from 'd3'
+
+const showInfo = ref(true)
 
 interface NodeData {
   id: string
@@ -98,7 +113,7 @@ const nodes: NodeData[] = [
     description: 'Site for a local business',
     shape: 'circle',
     color: randomGray(),
-    github: 'https://google.com'
+    github: ''
   },
   {
     id: 'Ilir Lika Blog',
