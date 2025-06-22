@@ -6,8 +6,7 @@ comment: false
 
 In this blog I will discuss topics that I find interesting, such as:
 
-- [What will I find here?](#what-will-i-find-here)
-  - [Computer Science](#computer-science)
+- [Computer Science](#computer-science)
 
 
 ## Computer Science

@@ -9,9 +9,9 @@ import {
   openBlock,
   ref,
   watch
-} from "./chunk-FA4MWVOB.js";
+} from "./chunk-NEEWFFLG.js";
 
-// node_modules/@giscus/vue/dist/index.mjs
+// blog/node_modules/@giscus/vue/dist/index.mjs
 var d = ["id", "host", "repo", "repoid", "category", "categoryid", "mapping", "term", "strict", "reactionsenabled", "emitmetadata", "inputposition", "theme", "lang", "loading"];
 var l = defineComponent({
   __name: "Giscus",
@@ -35,7 +35,7 @@ var l = defineComponent({
   setup(s) {
     const t = ref(false);
     return onMounted(() => {
-      t.value = true, import("./giscus-aTimukGI-KUYRML7I.js");
+      t.value = true, import("./giscus-aTimukGI-LIOU4WDB.js");
     }), (e, m) => t.value ? (openBlock(), createElementBlock("giscus-widget", {
       key: 0,
       id: e.id,
@@ -57,7 +57,7 @@ var l = defineComponent({
   }
 });
 
-// node_modules/vitepress-plugin-comment-with-giscus/lib/giscus.js
+// blog/node_modules/vitepress-plugin-comment-with-giscus/lib/giscus.js
 var setGiscus = (props, frontmatter, defaultEnable = true) => {
   var _a;
   const defaultProps = {
